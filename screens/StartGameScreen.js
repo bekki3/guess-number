@@ -1,5 +1,5 @@
 import { TextInput, Pressable, View, StyleSheet } from "react-native";
-import PrimaryButton from "../PrimaryButton";
+import PrimaryButton from "../components/PrimaryButton";
 const StartGameScreen = () =>{
 
     return (
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         padding: 16,
         margin: 20,
         marginTop: 100,
-        backgroundColor: "#72063c",
+        backgroundColor: "#4e0329",
         borderRadius: 8,
         elevation: 0,
         alignItems: "center",
