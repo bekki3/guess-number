@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TextInput, View, StyleSheet, Alert } from "react-native";
+import { TextInput, View, StyleSheet, Alert, Text } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 
 const StartGameScreen = (props) =>{
@@ -12,7 +12,6 @@ const StartGameScreen = (props) =>{
     setEnteredNumber("");
   }
   const confirmInputHandler = () =>{
-    // console.log(enteredNumber);
     const chosenNumber = parseInt(enteredNumber);
     if(isNaN(chosenNumber)||chosenNumber<=0||chosenNumber>99)
     {
@@ -32,24 +31,37 @@ const StartGameScreen = (props) =>{
   
   const [enteredNumber, setEnteredNumber] = useState("");
     return (
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.numberInput}
-          keyboardType="number-pad"
-          maxLength={2}
-          autoCorrect={false}
-          autoFocus
-          value={enteredNumber}
-          onChangeText={numberInputHandler}
-        />
-        <View style={styles.buttonContainer}>
-          <PrimaryButton onPress={resetEnteredNumber}>Reset</PrimaryButton>
-          <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+      <View style={styles.bodyContainer}>
+        <View>
+          <Text style={styles.title}>Guess my number!</Text>
+        </View>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.numberInput}
+            keyboardType="number-pad"
+            maxLength={2}
+            autoCorrect={false}
+            autoFocus
+            value={enteredNumber}
+            onChangeText={numberInputHandler}
+          />
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={resetEnteredNumber}>Reset</PrimaryButton>
+            <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+          </View>
         </View>
       </View>
     );
 }
 const styles = StyleSheet.create({
+    bodyContainer: {
+    },
+    title: {
+      marginTop: 100,
+      textAlign: "center",
+      fontSize:24,
+      color: "#8e0329"
+    },
     inputContainer: {
         padding: 16,
         margin: 20,
