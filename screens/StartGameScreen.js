@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { TextInput, View, StyleSheet, Alert, Text } from "react-native";
+import { TextInput, View, StyleSheet, Alert, Text, useWindowDimensions } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
-
+// console.log(Dimensions.get("screen").height);
 const StartGameScreen = (props) =>{
   
+  const {width, height} = useWindowDimensions();
   const numberInputHandler = (inputText) =>{
     setEnteredNumber(inputText);
   }
-
   const resetEnteredNumber = () =>{
     setEnteredNumber("");
   }
@@ -30,6 +30,8 @@ const StartGameScreen = (props) =>{
   }
   
   const [enteredNumber, setEnteredNumber] = useState("");
+  //console.log(width, height);
+
     return (
       <View style={styles.bodyContainer}>
         <View>
@@ -53,11 +55,12 @@ const StartGameScreen = (props) =>{
       </View>
     );
 }
+// let deviceWidth = Dimensions.get("window").width;
 const styles = StyleSheet.create({
     bodyContainer: {
     },
     title: {
-      marginTop: 100,
+      // marginTop: deviceWidth < 700 ? 100 : 20,
       textAlign: "center",
       fontSize:24,
       color: "#8e0329"
